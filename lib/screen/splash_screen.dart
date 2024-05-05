@@ -11,11 +11,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final String myName = "ROJAL";
 
   @override
   void initState() {
-    Timer(Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GridViewScreen()));
+    Timer(const Duration(seconds: 2),(){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GridViewScreen(nameData: myName,)));
     });
     // TODO: implement initState
     super.initState();
@@ -23,9 +24,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return   Scaffold(
       body: Center(
-        child: Text("WELCOME ROJAL"),
+        child: Text(
+          'Welcome $myName',
+          style: const TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.w900
+          ),
+        ),
       ),
     );
   }
